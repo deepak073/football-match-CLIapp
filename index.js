@@ -21,7 +21,7 @@ const game = {
   players: [
     [
       "Rahul",
-      "Rohit"
+      "Rohit",
       "Gill",
       "Virat",
       "Kishan",
@@ -56,3 +56,33 @@ const game = {
   },
 };
 
+// 1. spreading player array from given data
+const [players1, players2] = game.players;
+
+// 2. sepereate GoalKeaper  drom player list,1st one is the GoalKeaper
+
+const [gk, ...fieldPlayers] = players1;
+
+// 3.  create array of all the player
+const allPlayers = [...players1, ...players2];
+
+// 4. Final player list after adding substitute player
+
+const players1Final = [...players1, "Rupesh", "Gundeep", "Samir"];
+
+// 5. creating variable for team 1,team 2  with their odds and draw
+
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+
+// 6. printing the total scores of player
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+};
+printGoals(...game.scored);
+
+// 7. Player is more likely to win with low 
+
+team1 < team2 && console.log("Team 1 is more likely to win");
+team1 > team2 && console.log("Team 1 is more likely to win");
